@@ -23,15 +23,14 @@
   </head>
 
   <body>
-    <div class="grid-container grid-container-padded">
       <header>
-          <div class="grid-x grid-padding-x">
+          <div class="grid-x grid-padding-x align-middle">
             <section id="search">
               <form id="searchForm" class="row">
                     <div class="label small-4 medium-4 large-4">
                       <label>search</label>
                     </div>
-                    <div class="cell small-4 medium-4 large-4" style="width: 165%;">
+                    <div class="cell small-4 medium-4 large-4" style="width: 155%;">
                       <input id="the-one-input-to-rule-them-all" type="text" value="Search for city"/>
                     </div>
                     <div class="button small-4 medium-4 large-4">
@@ -54,11 +53,22 @@
       </header>
     </div>
     <div class="grid-container grid-container-padded">
+      <div class="grid-x grid-padding-x align-left">
+        <span>
+          <aside>
+            Beached Whales are still Whales
+          </aside>
+        </span>
+      </div>
+    </div>
+    <div class="grid-container grid-container-padded">
       <main class="container p-5">
-        <div id="content" data-state="show" >
+        <div id="content" class="grid-y grid-padding-y align-center" data-state="show" >
           <section id="aboutApp" >
-            <h3>About Our App</h3>
-            <p>A web application that allows a user to pick a desired destination city or use local coordinates in order to find appropriate activities based on ambient conditions at that destination and user intent.</p>
+            <div class= " ">
+              <h3>About Our App</h3>
+              <p>A web application that allows a user to pick a desired destination city or use local coordinates in order to find appropriate activities based on ambient conditions at that destination and user intent.</p>
+            </div>
           </section>
           <section id="useApp">
             <h3>How to Use Our App</h3>
