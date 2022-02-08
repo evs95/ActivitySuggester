@@ -13,12 +13,22 @@ body {
 }
 
 header {
+  display: flex;
   padding: 20px;
   padding-top: 0px;
   color: hsl(206, 17%, 28%);
   text-align: center;
+  flex-direction: row;
+}
+
+header section{
+  width: 33%;
+}
+
+.row {
+  display: inline   ;
 }
 
 .container{
-  margin: 0;
+  margin: 5px;
 }
