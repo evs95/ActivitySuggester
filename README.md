@@ -2,7 +2,7 @@
 A web application that allows a user to pick a desired destination city or use local coordinates in order to find appropriate activities based on ambient conditions at that destination and user intent.
 
 1. [ User Experience and Use Cases](#user-experience)
-2. [ Mockup ](#mockup)
+2. [ UI Screenshots](#page-screen-shots)
 3. [ Third-party APIs ](#third-party-apis)
 4. [Pseudo-code](#pseudocode)
 
@@ -31,9 +31,15 @@ A web application that allows a user to pick a desired destination city or use l
     WHEN I look at the results 
     THEN the layout is well-polished and resembles the image in the mockup.
 
-<a name="mockup"></a>
-## Mockup
-![Page Wireframe](./assets/images/UX Design Template.png "wireframe")
+<a name ="screen-shots"></a>
+## Page Screen Shots
+#### The User Interface Wireframe Design
+-------------------------------------
+![UI Project](https://user-images.githubusercontent.com/94703967/153086599-6148502b-30ad-4869-b092-00f573922355.jpg)
+
+#### The User Experience Wireframe Design
+-------------------------------------
+![UX Design Template](https://user-images.githubusercontent.com/94703967/153086393-625028d7-e498-47af-a1c7-84f351cd66f7.png)
 
 <a name="third-party-apis"></a>
 ## Third-party APIs
@@ -68,12 +74,3 @@ city <br>
 ### CSS
 1. Add foundation classes to HTML elements using JS
 2. Define custom foundation styles
-
-### Page Screen Shots
-The User Interface Wireframe Design
--------------------------------------
-![UI Project](https://user-images.githubusercontent.com/94703967/153086599-6148502b-30ad-4869-b092-00f573922355.jpg)
-
-The User Experience Wireframe Design
--------------------------------------
-![UX Design Template](https://user-images.githubusercontent.com/94703967/153086393-625028d7-e498-47af-a1c7-84f351cd66f7.png)

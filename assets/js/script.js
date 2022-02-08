@@ -22,12 +22,6 @@ function fail (fail){
     console.log(fail);
 }
 
-<<<<<<< HEAD
-
-//Capture HTML elements
-
-
-=======
 }
 
 // Capture HTML elements
@@ -62,4 +56,3 @@ function handleSearchRequest() {
 
 
 };
->>>>>>> 3871dd04f9d9545bfa1408fa0cb32dfab4e550d2
