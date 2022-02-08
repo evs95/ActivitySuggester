@@ -17,10 +17,12 @@ function fail (fail){
 // Capture HTML elements
 
 var searchInput = $('#the-one-input-to-rule-them-all');
+var activitySection = $('#activities');
 
+activitySection.hide();
 // Capture Moment.js date
 
-var date = moment.now().toFormat('dddd');
+var date = moment().format('dddd');
 
 // Fetch Weather API
 
