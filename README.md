@@ -68,6 +68,3 @@ city <br>
 ### CSS
 1. Add foundation classes to HTML elements using JS
 2. Define custom foundation styles
-
-
-
