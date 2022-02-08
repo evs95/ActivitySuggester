@@ -2,6 +2,7 @@
 var latitude  =  0;
 var longitude =  0;
 var date = moment().format("dddd, MMMM Do, h:mm a")
+var trueWayPlaces;
 
 // Get user coordinates 
 var userCoordinates = navigator.geolocation.getCurrentPosition(success, fail);
@@ -68,7 +69,7 @@ function handleSearchRequest() {
 
     //Setup URL request
     var trueWayURL = "https://trueway-places.p.rapidapi.com/FindPlacesNearby?location="
-                     + searchValues.user_latitude +"%2C-" + searchValues.longitude + 
+                     + searchValues.user_latitude +"%2C-" + searchValues.user_longitude + 
                      "&type=" + searchValues.placeTypes +
                      "&radius="+searchValues.searchRadius +"&language=en";
 
@@ -83,8 +84,9 @@ function handleSearchRequest() {
     
     fetch(trueWayURL, trueWayOptions)
     .then(response => {
-	console.log(response);
-    
+	 console.log(response);
+     //Save the place results to a global variable
+     trueWayPlaces = response;       
     })
     .catch(err => {
 	console.error(err);
