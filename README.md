@@ -69,5 +69,11 @@ city <br>
 1. Add foundation classes to HTML elements using JS
 2. Define custom foundation styles
 
+### Page Screen Shots
+The User Interface Wireframe Design
+-------------------------------------
+![UI Project](https://user-images.githubusercontent.com/94703967/153086599-6148502b-30ad-4869-b092-00f573922355.jpg)
 
-
+The User Experience Wireframe Design
+-------------------------------------
+![UX Design Template](https://user-images.githubusercontent.com/94703967/153086393-625028d7-e498-47af-a1c7-84f351cd66f7.png)
