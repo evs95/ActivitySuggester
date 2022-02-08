@@ -19,16 +19,46 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
-    <title>Work Day Scheduler</title>
+    <title>Sunshine</title>
   </head>
 
   <body>
     <header >
-        <h1>Activity Suggester</h1>
+        <section id="search">
+          <form id="searchForm" class="row">
+            <label>search</label>
+            <input type="text"/>
+            <button>🔎</button>
+          </form>
+        </section>
+        <section id="title">
+          <h1>Sunshine</h1>
+        </section>
+        <section id="currentWeather">
+           <!-- {
+            "id": 803,
+            "main": "Clouds",
+            "description": "broken clouds",
+            "icon": "04d"
+        }         -->
+        </section>
     </header>
-    <main class="container">
+    <main class="container p-5">
       <!-- Blocks goes here -->
-      <h3>Welcome to Activity Suggester!!!</h3>
+      <section id="aboutApp" >
+        <h3>About Our App</h3>
+        <p>A web application that allows a user to pick a desired destination city or use local coordinates in order to find appropriate activities based on ambient conditions at that destination and user intent.</p>
+      </section>
+      <section id="useApp">
+        <h3>How to Use Our App</h3>
+        <p>Start by searching a city</p>
+      </section>
+      <section id="activityTypes">
+        <h3>Categories includes</h3>
+        <ol>
+          <li>Parks</li>
+        </ol>
+      </section>
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
