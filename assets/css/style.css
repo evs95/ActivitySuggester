@@ -26,7 +26,7 @@ header section{
 }
 
 .row {
-  display: inline   ;
+  display:flex; /*added flex and replaced inline to get the search to run across the screen[change made on 02.08.2022 3:00pm by BBB [for review]]*/
 }
 
 .container{
