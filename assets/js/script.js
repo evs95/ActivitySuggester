@@ -1,3 +1,5 @@
+//Get user coordinates
+
 var userCoordinates = navigator.geolocation.getCurrentPosition(success, fail);
 
 function success (position){
@@ -7,3 +9,8 @@ function success (position){
 function fail (fail){
     console.log(fail);
 }
+
+
+//Capture HTML elements
+
+
