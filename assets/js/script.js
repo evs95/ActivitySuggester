@@ -1,3 +1,8 @@
+var userCoordinates = navigator.geolocation.getCurrentPosition(success, fail);
+
+function success (position){
+    console.log(position.coords.longitude);
+
 // Get user coordinates 
 
 var latitude  =  0;
@@ -8,10 +13,13 @@ var userCoordinates = navigator.geolocation.getCurrentPosition(success, fail);
 function success (position){
     longitude = position.coords.longitude;
     latitude  = position.coords.latitude;
+
 }
 
 function fail (fail){
     console.log(fail);
+}
+
 }
 
 // Capture HTML elements
@@ -46,8 +54,3 @@ function handleSearchRequest() {
 
 
 };
-
-
-
-
-
