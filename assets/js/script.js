@@ -37,12 +37,14 @@ function handleSearchRequest() {
     //Store search values in local storage
     var previousSearches;
 
-    if (localStorage.getItem('previousSearches') == null){
+    if (JSON.parse(localStorage.getItem('previousSearches')) == null){
         previousSearches = [];
     }
     else{
-        previousSearches = localStorage.getItem('previousSearches');
+        previousSearches = JSON.parse(localStorage.getItem('previousSearches'));
     }
+
+    console.log(previousSearches);
 
     //All search value inputs go here
         // Coordinates will have to be reset from user position for a city search
@@ -53,15 +55,15 @@ function handleSearchRequest() {
         cityName: searchInput.val(),
         user_latitude: latitude,
         user_longitude: longitude,
-        placeTypes = '',
-        searchRadius = 10000
+        placeTypes: '',
+        searchRadius: 10000
     };
 
     //The object is added to the previous searches array
     previousSearches.push(searchValues);
 
     //The array is stored locally in JSON
-    localStorage.setItem('previousSearches', JSON.stringify(previousSearches));
+     localStorage.setItem('previousSearches', JSON.stringify(previousSearches));
     /*****************************************/ 
 
     /*****************************************/ 
@@ -69,9 +71,9 @@ function handleSearchRequest() {
 
     //Setup URL request
     var trueWayURL = "https://trueway-places.p.rapidapi.com/FindPlacesNearby?location="
-                     + searchValues.user_latitude +"%2C-" + searchValues.user_longitude + 
-                     "&type=" + searchValues.placeTypes +
-                     "&radius="+searchValues.searchRadius +"&language=en";
+                     + searchValues.user_latitude +"%2C" + searchValues.user_longitude + 
+                     "&radius="+ searchValues.searchRadius +"&language=en";
+
 
     var trueWayOptions =  {
          "method": "GET",
@@ -81,7 +83,7 @@ function handleSearchRequest() {
           }
     };
     
-    
+    /*
     fetch(trueWayURL, trueWayOptions)
     .then(response => {
 	 console.log(response);
@@ -90,7 +92,7 @@ function handleSearchRequest() {
     })
     .catch(err => {
 	console.error(err);
-    });
+    });*/
 
     /*****************************************/ 
 
