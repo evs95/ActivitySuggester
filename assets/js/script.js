@@ -1,3 +1,5 @@
+//Get user coordinates
+
 var userCoordinates = navigator.geolocation.getCurrentPosition(success, fail);
 
 function success (position){
