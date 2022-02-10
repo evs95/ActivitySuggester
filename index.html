@@ -23,68 +23,92 @@
   </head>
 
   <body>
-    <header >
-        <section id="search">
-          <form id="searchForm" class="row">
-            <label>search</label>
-            <input id="the-one-input-to-rule-them-all" type="text"/>
-            <button>🔎</button>
-          </form>
-        </section>
-        <section id="title">
-          <h1>Sunshine</h1>
-        </section>
-        <section id="currentWeather">
-           <!-- {
-            "id": 803,
-            "main": "Clouds",
-            "description": "broken clouds",
-            "icon": "04d"
-        }         -->
-        </section>
-    </header>
-    <main class="container p-5">
-      <div id="content" data-state="show" >
-        <section id="aboutApp" >
-          <h3>About Our App</h3>
-          <p>A web application that allows a user to pick a desired destination city or use local coordinates in order to find appropriate activities based on ambient conditions at that destination and user intent.</p>
-        </section>
-        <section id="useApp">
-          <h3>How to Use Our App</h3>
-          <p>Start by searching a city</p>
-        </section>
-        <section id="activityTypes">
-          <h3>Categories includes</h3>
-          <ol>
-            <li>Parks</li>
-          </ol>
-        </section>
-      </div>
-      <div id="activities" data-state="hide">
-        <aside>
-          <form id="searchForm" class="row">
-            <label>search</label>
-            <input id="the-one-input-to-rule-them-all" type="text"/>
-            <button>🔎</button>
-          </form>
-        </aside>
-        <div>
-          <section id="jumbotron"></section>
-          <section id="cards">
-            <div class="radius bordered shadow card">
-              <img src="https://placehold.it/500x250">
-              <div class="card-divider">
-                Styled Card
-              </div>
-              <div class="card-section">
-                <h4>This is a card.</h4>
-                <p>It has an easy to override visual style, and is appropriately subdued.</p>
-              </div>
-            </div>            
+      <header>
+          <div class="grid-x grid-padding-x align-middle">
+            <section id="search">
+              <form id="searchForm" class="row">
+                    <div class="label small-4 medium-4 large-4">
+                      <label>search</label>
+                    </div>
+                    <div class="cell small-4 medium-4 large-4" style="width: 155%;">
+                      <input id="the-one-input-to-rule-them-all" type="text" value="Search for city"/>
+                    </div>
+                    <div class="button small-4 medium-4 large-4 alert small">
+                      <button>🔎</button>
+                    </div>
+                  </form>
+              </section>
+          </div>
+          <section style="center" id="title">
+            <h1>Sunshine</h1>
           </section>
-        </div>
+          <section id="currentWeather">
+            <!-- {
+              "id": 803,
+              "main": "Clouds",
+              "description": "broken clouds",
+              "icon": "04d"
+          }         -->
+          </section>
+      </header>
+    </div>
+    <div class="grid-container grid-container-padded">
+      <div class="grid-x grid-padding-x align-left">
+        <span>
+          <aside>
+            Beached Whales are still Whales
+          </aside>
+        </span>
       </div>
-    </main>
+    </div>
+    <div class="grid-container grid-container-padded">
+      <main class="container p-5">
+        <div id="content" class="grid-margin-x grid-y grid-padding-y align-center" data-state="show" >
+          <div class="small-4 small-offset-6 medium-4 medium-offset-6 large-4 large-offset-4">
+            <section id="aboutApp" >
+              <div>
+                <h3>About Our App</h3>
+                <p>A web application that allows a user to pick a desired destination city or use local coordinates in order to find appropriate activities based on ambient conditions at that destination and user intent.</p>
+              </div>
+            </section>
+            <section id="useApp">
+              <h3>How to Use Our App</h3>
+              <p>Start by searching a city</p>
+            </section>
+            <section id="activityTypes">
+              <h3>Categories includes</h3>
+              <ol>
+                <li>Parks</li>
+              </ol>
+            </section>
+          </div>
+        </div>
+        <div id="activities" data-state="hide">
+          <aside>
+            <form id="searchForm" class="row">
+              <label>search</label>
+              <input id="the-one-input-to-rule-them-all" type="text"/>
+              <button>🔎</button>
+            </form>
+          </aside>
+          <div>
+            <section id="jumbotron"></section>
+            <section id="cards">
+              <div class="radius bordered shadow card">
+                <img src="https://placehold.it/500x250">
+                <div class="card-divider">
+                  Styled Card
+                </div>
+                <div class="card-section">
+                  <h4>This is a card.</h4>
+                  <p>It has an easy to override visual style, and is appropriately subdued.</p>
+                </div>
+              </div>            
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
