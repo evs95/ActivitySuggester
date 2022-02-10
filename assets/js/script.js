@@ -20,16 +20,32 @@ function fail (fail){
 // Capture HTML elements
 var searchInput = $('#the-one-input-to-rule-them-all');
 
-// Hide results elements
+// Hide results section
 var activitySection = $('#activities');
 activitySection.hide();
 
-
 // Fetch Weather API
+function getWeatherData(city){
+    var url = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&units=imperial&appid=75cb326e22036d2782293ee5a922582b";
+    fetch(url)
+        .then(function (response) {
+        return response.json();
+    })
+    .then(function(data){
+        if(data !=null && data.cod == 200){
+            console.log(data);
+        }
+        else{
+            console.log("Error from API");
+        }   
+  });
+};
 
 // Renders Page Elements  
     //Render Weather
     //Render Date
+
+// Fetch Weather API
 
 // Handles search request
 function handleSearchRequest() {
@@ -83,7 +99,7 @@ function handleSearchRequest() {
           }
     };
     
-    /*
+    
     fetch(trueWayURL, trueWayOptions)
     .then(response => {
 	 console.log(response);
@@ -92,7 +108,7 @@ function handleSearchRequest() {
     })
     .catch(err => {
 	console.error(err);
-    });*/
+    });
 
     /*****************************************/ 
 
@@ -105,8 +121,3 @@ function handleSearchRequest() {
 
 
 };
-
-
-
-
-
