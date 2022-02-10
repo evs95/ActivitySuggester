@@ -16,7 +16,10 @@ function fail (fail){
     console.log(fail);
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> deb39e2c05db8e237882bee3eeba8e94f4723df2
 // Capture HTML elements
 var searchInput = $('#the-one-input-to-rule-them-all');
 
