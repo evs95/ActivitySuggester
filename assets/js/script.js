@@ -2,6 +2,7 @@
 var latitude  =  0;
 var longitude =  0;
 var date = moment().format("dddd, MMMM Do, h:mm a")
+var localWeatherData;
 var trueWayPlaces;
 
 // Get user coordinates 
@@ -10,6 +11,38 @@ var userCoordinates = navigator.geolocation.getCurrentPosition(success, fail);
 function success (position){
     longitude = position.coords.longitude;
     latitude  = position.coords.latitude;
+   
+      //Render Weather
+      function getLocalWeatherData(latitude, longitude){
+        var url = "https://api.openweathermap.org/data/2.5/weather?lat="+latitude+"&lon="+longitude+"&units=imperial&appid=75cb326e22036d2782293ee5a922582b";
+        fetch(url)
+            .then(function (response) {
+            return response.json();
+        })
+        .then(function(data){
+            if(data !=null && data.cod == 200){
+                //Capture local weather in a global variable
+                localWeatherData = data;
+
+
+                //Render the local weather page elements
+                $('#weather').text(localWeatherData.weather[0].description)
+                             .css('text-transform', 'capitalize')
+                             .append($('<img>')
+                                        .attr('alt', localWeatherData.weather[0].description)
+                                        .attr('src', "http://openweathermap.org/img/wn/"
+                                         + localWeatherData.weather[0].icon + "@2x.png"));
+                            
+    
+            }
+            else{
+                console.log("Error from API");
+            }   
+      });
+    };
+
+    getLocalWeatherData(latitude, longitude);
+    
 }
 
 function fail (fail){
@@ -19,6 +52,7 @@ function fail (fail){
 // Capture HTML elements
 var searchInput = $('#the-one-input-to-rule-them-all');
 var mainSection = $('#main-section');
+var currentWeather =$('#current-weather');
 
 // Hide results section
 var activitySection = $('#activities');
@@ -33,7 +67,7 @@ function getWeatherData(city){
     })
     .then(function(data){
         if(data !=null && data.cod == 200){
-            console.log(data);
+            weatherData = data;
         }
         else{
             console.log("Error from API");
@@ -41,11 +75,9 @@ function getWeatherData(city){
   });
 };
 
-// Renders Page Elements  
-    //Render Weather
-    //Render Date
+//Render Date
+ 
 
-// Fetch Weather API
 
 // Handles search request
 function handleSearchRequest() {
