@@ -54,10 +54,13 @@ function fail (fail){
 var searchInput = $('#the-one-input-to-rule-them-all');
 var mainSection = $('#main-section');
 var currentWeather =$('#current-weather');
+var resultsSection = $('#results-section');
+var rulesInfo = $('#rules-info');
 
 // Hide results section
 var activitySection = $('#activities');
 activitySection.hide();
+resultsSection.hide();
 
 // Fetch Weather API
 function getWeatherData(city){
@@ -155,14 +158,14 @@ function handleSearchRequest() {
 
     function renderResults(){
     
-        mainSection.hide();
+        rulesInfo.hide();
 
         //Assign jQuery references to results elements
         //var heroSection = $('.hero-section');
-        debugger;
+        
         var cards = $('#cards');
 
-        for(let i = 1; i < cards.length + 1 ; i++){               //This loop populates the card info
+        for(let i = 1; i < 9 ; i++){               //This loop populates the card info
             var cardActivityID = `#card-${i}-activity-type`;
             var cardActivity = $(cardActivityID);
 
@@ -182,7 +185,7 @@ function handleSearchRequest() {
             cardWebsite.attr('href', '#');
         }
 
-        activitySection.show();
+        resultsSection.show();
 
     }
    
