@@ -19,6 +19,7 @@
 
 <body>
   <header>
+
     <div class="grid-x grid-padding-x align-middle">
       <section id="search">
         <form id="searchForm" class="row">
@@ -34,9 +35,11 @@
         </form>
       </section>
     </div>
+
     <section style="center" id="title">
       <h1>Sunshine</h1>
     </section>
+
     <section id="currentWeather">
       <!-- {
               "id": 803,
@@ -45,8 +48,11 @@
               "icon": "04d"
           }         -->
     </section>
+
   </header>
+
   </div>
+
   <div class="grid-container grid-container-padded">
     <div class="grid-x grid-padding-x align-left">
       <span>
@@ -56,7 +62,9 @@
       </span>
     </div>
   </div>
+  
   <div class="grid-container grid-container-padded">
+    <div id="main-section">
     <main class="container p-5">
       <div id="content" class="grid-margin-x grid-y grid-padding-y align-center" data-state="show">
         <div class="small-4 small-offset-6 medium-4 medium-offset-6 large-4 large-offset-4">
@@ -67,6 +75,8 @@
                 order to find appropriate activities based on ambient conditions at that destination and user intent.
               </p>
             </div>
+
+            
           </section>
           <section id="useApp">
             <h3>How to Use Our App</h3>
@@ -80,7 +90,12 @@
           </section>
         </div>
       </div>
+
+    </div>
+
+  
       <div id="activities" data-state="hide">
+        <!--
         <aside>
           <form id="searchForm" class="row">
             <label>search</label>
@@ -89,19 +104,33 @@
           </form>
         </aside>
         <div>
-          <section id="jumbotron"></section>
-          <section id="cards">
-            <div class="radius bordered shadow card">
-              <img src="https://placehold.it/500x250">
-              <div class="card-divider">
-                Styled Card
-              </div>
-              <div class="card-section">
-                <h4>This is a card.</h4>
-                <p>It has an easy to override visual style, and is appropriately subdued.</p>
-              </div>
+        -->
+
+          <section class="hero-section">
+            <div class="hero-section-text">
+              <h1>Suggested Activities in Your Area</h1>
+              <h5>These places are happenin'!</h5>
             </div>
           </section>
+
+          <section id="cards">
+
+
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <h2 id="card-1-activity-type">Cafe</h2>
+                </div>
+                <div class="flip-card-back">
+                  <h2 id="card-1-activity-name">Activity Name</h2>
+                  <p id="card-1-activity-address">123 Activity Address Ln, Activityville, AA, 12345</p>
+                  <a id="card-1-activity-website" href="#">Website</a>
+                </div>
+              </div>
+            </div>
+
+          </section>
+
         </div>
       </div>
     </main>

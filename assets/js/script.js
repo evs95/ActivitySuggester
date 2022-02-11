@@ -18,6 +18,7 @@ function fail (fail){
 
 // Capture HTML elements
 var searchInput = $('#the-one-input-to-rule-them-all');
+var mainSection = $('#main-section');
 
 // Hide results section
 var activitySection = $('#activities');
@@ -119,8 +120,41 @@ function handleSearchRequest() {
 
     //Build results elements
 
+    function renderResults(){
+    
+        mainSection.hide();
+
+        //Assign jQuery references to results elements
+        //var heroSection = $('.hero-section');
+        var cards = $('#cards');
+
+        for(let i = 1; i < cards.length ; i++){               //This loop populates the card info
+            var cardActivityID = `#card-${i}-activity-type`;
+            var cardActivity = $(cardActivityID);
+
+            var cardNameID = `#card-${i}-activity-name`;
+            var cardName = $(cardNameID);
+
+            var cardAddressID = `#card-${i}-activity-address`;
+            var cardAddress = $(cardAddressID);
+
+            var cardWebsiteID = `#card-${i}-activity-website`;
+            var cardWebsite = $(cardWebsite);
+
+            cardActivity.text() = 'Empty Search';
+            cardName.text() = 'Empty Search';
+            cardAddress.text() = 'Empty Search';
+            cardWebsite.text() = 'Empty Search';
+            cardWebsite.attr('href', '#');
+        }
+
+        activitySection.show();
+
+    }
+   
+
     //Redirect to Results Page
-
-
+    renderResults();
+  
 
 };
