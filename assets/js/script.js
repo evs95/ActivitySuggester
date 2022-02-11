@@ -158,9 +158,10 @@ function handleSearchRequest() {
 
         //Assign jQuery references to results elements
         //var heroSection = $('.hero-section');
+        debugger;
         var cards = $('#cards');
 
-        for(let i = 1; i < cards.length ; i++){               //This loop populates the card info
+        for(let i = 1; i < cards.length + 1 ; i++){               //This loop populates the card info
             var cardActivityID = `#card-${i}-activity-type`;
             var cardActivity = $(cardActivityID);
 
@@ -173,10 +174,10 @@ function handleSearchRequest() {
             var cardWebsiteID = `#card-${i}-activity-website`;
             var cardWebsite = $(cardWebsite);
 
-            cardActivity.text() = 'Empty Search';
-            cardName.text() = 'Empty Search';
-            cardAddress.text() = 'Empty Search';
-            cardWebsite.text() = 'Empty Search';
+            cardActivity.text('Empty Search')
+            cardName.text('Empty Search')
+            cardAddress.text('Empty Search')
+            cardWebsite.text('Empty Search')
             cardWebsite.attr('href', '#');
         }
 
