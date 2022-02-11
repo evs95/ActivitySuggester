@@ -103,7 +103,11 @@ function handleSearchRequest() {
     .then(response => {
 	 console.log(response);
      //Save the place results to a global variable
-     trueWayPlaces = response;       
+     response = response.json();  
+     return response;     
+    })
+    .then(function(response){
+        trueWayPlaces = response;
     })
     .catch(err => {
 	console.error(err);
