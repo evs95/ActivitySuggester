@@ -9,7 +9,7 @@ var trueWayPlaces;
 // Capture HTML elements
 var searchInput = $('#the-one-input-to-rule-them-all');
 var mainSection = $('#main-section');
-var currentWeather =$('#current-weather');
+var currentWeather = $('#current-weather');
 var resultsSection = $('#results-section');
 var rulesInfo = $('#rules-info');
 var btnsearchEl = $('#btnsearch');
@@ -25,38 +25,38 @@ resultsSection.hide();
 //If the geolocation succeeds
 function success(position) {
     longitude = position.coords.longitude;
-    latitude  = position.coords.latitude;
-   
-      //Render Weather
-      function getLocalWeatherData(latitude, longitude){
-        var url = "https://api.openweathermap.org/data/2.5/weather?lat="+latitude+"&lon="+longitude+"&units=imperial&appid=75cb326e22036d2782293ee5a922582b";
+    latitude = position.coords.latitude;
+
+    //Render Weather
+    function getLocalWeatherData(latitude, longitude) {
+        var url = "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&units=imperial&appid=75cb326e22036d2782293ee5a922582b";
         fetch(url)
             .then(function (response) {
-            return response.json();
-        })
-        .then(function(data){
-            if(data !=null && data.cod == 200){
-                //Capture local weather in a global variable
-                localWeatherData = data;
+                return response.json();
+            })
+            .then(function (data) {
+                if (data != null && data.cod == 200) {
+                    //Capture local weather in a global variable
+                    localWeatherData = data;
 
 
-                //Render the local weather page elements
-                $('#weather').text(localWeatherData.weather[0].description)
-                             .css('text-transform', 'capitalize')
-                             .append($('<img>')
-                                        .attr('alt', localWeatherData.weather[0].description)
-                                        .attr('src', "http://openweathermap.org/img/wn/"
-                                         + localWeatherData.weather[0].icon + "@2x.png"));
-              
-                 currentDate.text(data.name + '(' + moment().format("MM/DD/YYYY") + ')');
-                 tempEl.text("Temp: " + data.main.temp + "°F");
-                            
-    
-            }
-            else{
-                console.log("Error from API");
-            }   
-      });
+                    //Render the local weather page elements
+                    $('#weather').text(localWeatherData.weather[0].description)
+                        .css('text-transform', 'capitalize')
+                        .append($('<img>')
+                            .attr('alt', localWeatherData.weather[0].description)
+                            .attr('src', "http://openweathermap.org/img/wn/"
+                                + localWeatherData.weather[0].icon + "@2x.png"));
+
+                    currentDate.text(data.name + '(' + moment().format("MM/DD/YYYY") + ')');
+                    tempEl.text("Temp: " + data.main.temp + "°F");
+
+
+                }
+                else {
+                    console.log("Error from API");
+                }
+            });
     };
 
     getLocalWeatherData(latitude, longitude);
@@ -89,7 +89,7 @@ function handleSearchRequest() {
     // var latitude  =
     // var longitude =
 
-    
+
 
     var searchValues = {
         cityName: searchInput.val(),
@@ -123,117 +123,103 @@ function handleSearchRequest() {
         }
     };
 <<<<<<< HEAD
-    
-    
+
+
 =======
 
 
 >>>>>>> 74ddb9e0babf41f91e736ad411ae34b9d275645f
     fetch(trueWayURL, trueWayOptions)
 
-    .then(response => {
-	 console.log(response);
-     //Save the place results to a global variable
-     response = response.json();  
-     return response;     
-    })
-    .then(function(response){
-        trueWayPlaces = response;
-    })
-    .catch(err => {
-	console.error(err);
-    });
-<<<<<<< HEAD
-
-
-    fetch(trueWayURL, trueWayOptions)
         .then(response => {
             console.log(response);
             //Save the place results to a global variable
+            response = response.json();
+            return response;
+        })
+        .then(function (response) {
             trueWayPlaces = response;
         })
         .catch(err => {
             console.error(err);
         });
-=======
->>>>>>> 74ddb9e0babf41f91e736ad411ae34b9d275645f
 
     /*****************************************/
 
-// Fetch Weather API
-function getWeatherData(city) {
-    var url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=75cb326e22036d2782293ee5a922582b";
-    fetch(url)
-        .then(function (response) {
-        return response.json();
-        })
-        .then(function (data) {
-            if (data != null && data.cod == 200) {
-                cityWeatherData = data;
-                latitude = data.coord.lat;
-                longitude = data.coord.lon;
-              
-                //Stores search info in local storage and gets TrueWay API info
-                handleSearchRequest();
+    // Fetch Weather API
+    function getWeatherData(city) {
+        var url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=75cb326e22036d2782293ee5a922582b";
+        fetch(url)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                if (data != null && data.cod == 200) {
+                    cityWeatherData = data;
+                    latitude = data.coord.lat;
+                    longitude = data.coord.lon;
 
-                // TODO : Show section of activities
-                function renderResults(){
-    
-                  rulesInfo.hide();
+                    //Stores search info in local storage and gets TrueWay API info
+                    handleSearchRequest();
 
-                   //Assign jQuery references to results elements
-                   //var heroSection = $('.hero-section');
-        
-                   //var cards = $('#cards');
+                    // TODO : Show section of activities
+                    function renderResults() {
 
-                   for(let i = 1; i <= 8 ; i++){               //This loop populates the card info
-                     var cardActivityID = `#card-${i}-activity-name`;
-                     var cardActivity = $(cardActivityID);
-    
-                     var cardAddressID = `#card-${i}-activity-address`;
-                     var cardAddress = $(cardAddressID);
+                        rulesInfo.hide();
 
-                     var cardPhoneNumberID = `#card-${i}-activity-phonenumber`;
-                     var cardPhoneNumber = $(cardPhoneNumberID);
+                        //Assign jQuery references to results elements
+                        //var heroSection = $('.hero-section');
 
-                     var cardWebsiteID = `#card-${i}-activity-website`;
-                     var cardWebsite = $(cardWebsite);
+                        //var cards = $('#cards');
 
-                     cardActivity.text('Empty Search');
-                     cardAddress.text('Empty Search');
-                     cardPhoneNumber.text('Empty Search');
-                     cardWebsite.text('Empty Search');
-                     cardWebsite.attr('href', '#');
-                   }
+                        for (let i = 1; i <= 8; i++) {               //This loop populates the card info
+                            var cardActivityID = `#card-${i}-activity-name`;
+                            var cardActivity = $(cardActivityID);
 
-               resultsSection.show();
-              }
-   
+                            var cardAddressID = `#card-${i}-activity-address`;
+                            var cardAddress = $(cardAddressID);
 
-             //Render the results elements into the main content section
-             renderResults();
-              
-              
-            }
-            else {
-                console.log("Error from API");
-            }
-        });
-};
+                            var cardPhoneNumberID = `#card-${i}-activity-phonenumber`;
+                            var cardPhoneNumber = $(cardPhoneNumberID);
+
+                            var cardWebsiteID = `#card-${i}-activity-website`;
+                            var cardWebsite = $(cardWebsiteID);
+
+                            cardActivity.text('Empty Search');
+                            cardAddress.text('Empty Search');
+                            cardPhoneNumber.text('Empty Search');
+                            cardWebsite.text('Empty Search');
+                            cardWebsite.attr('href', '#');
+                        }
+
+                        resultsSection.show();
+                    }
 
 
+                    //Render the results elements into the main content section
+                    renderResults();
 
-// Get user coordinates 
-var userCoordinates = navigator.geolocation.getCurrentPosition(success, fail);
 
-function onSearchBtnClick(event) {
-    event.preventDefault();
+                }
+                else {
+                    console.log("Error from API");
+                }
+            });
+    };
 
-    //Gets the city weather data and forwards that information to the handleSearchRequest function
-    getWeatherData(searchInput.val());
 
-}
 
-//Sets an event listener on the search button
-btnsearchEl.on('click', onSearchBtnClick);
+    // Get user coordinates 
+    var userCoordinates = navigator.geolocation.getCurrentPosition(success, fail);
+
+    function onSearchBtnClick(event) {
+        event.preventDefault();
+
+        //Gets the city weather data and forwards that information to the handleSearchRequest function
+        getWeatherData(searchInput.val());
+
+    }
+
+    //Sets an event listener on the search button
+    btnsearchEl.on('click', onSearchBtnClick);
 
