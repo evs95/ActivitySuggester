@@ -103,11 +103,13 @@ function handleSearchRequest() {
         // var latitude  =
         // var longitude =
 
+    
+
     var searchValues = {
         cityName: searchInput.val(),
         user_latitude: latitude,
         user_longitude: longitude,
-        placeTypes: '',
+        placeType: '',
         searchRadius: 10000
     };
 
@@ -165,15 +167,15 @@ function handleSearchRequest() {
         
         var cards = $('#cards');
 
-        for(let i = 1; i < 9 ; i++){               //This loop populates the card info
-            var cardActivityID = `#card-${i}-activity-type`;
+        for(let i = 1; i <= 8 ; i++){               //This loop populates the card info
+            var cardActivityID = `#card-${i}-activity-name`;
             var cardActivity = $(cardActivityID);
-
-            var cardNameID = `#card-${i}-activity-name`;
-            var cardName = $(cardNameID);
 
             var cardAddressID = `#card-${i}-activity-address`;
             var cardAddress = $(cardAddressID);
+
+            var cardNumberID = `#card-${i}-activity-phonenumber`;
+            var cardNumber = $(cardNameID);
 
             var cardWebsiteID = `#card-${i}-activity-website`;
             var cardWebsite = $(cardWebsite);
@@ -195,3 +197,7 @@ function handleSearchRequest() {
   
 
 };
+
+//Logic to determine place type
+            // Destination
+               //Weather
