@@ -29,7 +29,18 @@ const goodWeatherActivities = [amusement_park,aquarium,bicycle_store,campground,
 const badWeatherActivities = [art_gallery,bakery,bar,beauty_salon,book_store,bowling,cafe,casino,cinema,clothing_store,department_store,library,liquor_store,museum,night_club,restaurant,shoe_store,shopping_center,spa,store,gym,home_goods_store];
 //! COMPARISONS, BOOLEANS, CONDITIONS, STATEMENTS[SWITCH], LOOPS[FOR, FOR IN, FOR OF++[ITERABLES]++ ,WHILE], SETS.add(), Map()
 //--A---Logic for comparing array output
-
+function compareWeatherConditions(){//!sTART OF FN////|||||
+// IF-ELSEIF-ELSE compare weather conditions using booleans    
+if (goodWeatherConditions == true) {
+    alert('Tis a nice day my dude!');   
+}
+else if(badWeatherConditions == true) {
+    alert('Tis a nice day my dude!');
+}
+else {
+    alert('Houston we have a problem!');
+};
+};//!END OF FN////////////////////////////////////////||||
 //--B-1--Logic based on types based on weather
 
 //--B-2--Find City
