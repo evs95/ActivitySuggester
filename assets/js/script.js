@@ -70,7 +70,7 @@ function fail(fail) {
 
 
 // Saves search info to local storage and gets TrueWay API info
-function handleSearchRequest() {
+function handleSearchRequest(city) {
     /*****************************************/
     //Store search values in local storage
     var previousSearches;
@@ -92,7 +92,7 @@ function handleSearchRequest() {
     
 
     var searchValues = {
-        cityName: searchInput.val(),
+        cityName: city,
         city_latitude: latitude,
         city_longitude: longitude,
         placeType: getActivities(),
@@ -100,7 +100,20 @@ function handleSearchRequest() {
     };
 
     //The object is added to the previous searches array
-    previousSearches.push(searchValues);
+    var savedList = JSON.parse(localStorage.getItem("previousSearches"));
+    var cityExist = false;
+    if(savedList != null){
+        for (var index = 0; index < savedList.length; index++) {
+            //const element = array[index];
+            if(savedList[index].cityName.toLowerCase() == searchValues.cityName.toLowerCase()){
+                cityExist = true;
+            }
+        }
+    }
+    
+    if(!cityExist){
+        previousSearches.push(searchValues);
+    }
 
     //The array is stored locally in JSON
     localStorage.setItem('previousSearches', JSON.stringify(previousSearches));
@@ -156,8 +169,9 @@ function getWeatherData(city) {
                 longitude = data.coord.lon;
               
                 //Stores search info in local storage and gets TrueWay API info
-                handleSearchRequest();
+                handleSearchRequest(city);
 
+                loadSavedCities(); 
              //Render the results elements into the main content section
              //renderResults();
               
@@ -179,7 +193,6 @@ function onSearchBtnClick(event) {
     console.log(event);
     //Gets the city weather data and forwards that information to the handleSearchRequest function
     //var cityName = event.target
-    loadSavedCities(); 
     getWeatherData(searchInput.val() != ''?searchInput.val():event.target.innerHTML);
 
 }
