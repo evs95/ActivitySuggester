@@ -15,7 +15,7 @@ var rulesInfo = $('#rules-info');
 var btnsearchEl = $('#btnsearch');
 var currentDate = $(); // TODO : ID of curretn date in header
 var tempEl = $(); // TODO : ID of temparature in header
-
+var searchedCitiesListEl = $('#searchedCitiesList');
 
 // Hide results section
 var activitySection = $('#activities');
@@ -95,7 +95,7 @@ function handleSearchRequest() {
         cityName: searchInput.val(),
         city_latitude: latitude,
         city_longitude: longitude,
-        placeType: '',
+        placeType: getActivities(),
         searchRadius: 10000
     };
 
@@ -111,8 +111,8 @@ function handleSearchRequest() {
 
     //Setup URL request
     var trueWayURL = "https://trueway-places.p.rapidapi.com/FindPlacesNearby?location="
-        + searchValues.user_latitude + "%2C" + searchValues.user_longitude +
-        "&radius=" + searchValues.searchRadius + "&language=en";
+        + searchValues.city_latitude + "%2C" + searchValues.city_longitude +
+        "&radius=" + searchValues.searchRadius + "&language=en" + "&type=" + searchValues.placeType;
 
 
     var trueWayOptions = {
@@ -131,6 +131,7 @@ function handleSearchRequest() {
 >>>>>>> 74ddb9e0babf41f91e736ad411ae34b9d275645f
     fetch(trueWayURL, trueWayOptions)
 
+<<<<<<< HEAD
         .then(response => {
             console.log(response);
             //Save the place results to a global variable
@@ -144,6 +145,22 @@ function handleSearchRequest() {
             console.error(err);
         });
 
+=======
+    .then(response => {
+	 console.log(response);
+     //Save the place results to a global variable
+     response = response.json();  
+     return response;     
+    })
+    .then(function(response){
+        trueWayPlaces = response.results;
+        renderResults();
+    })
+    .catch(err => {
+	console.error(err);
+    });
+}
+>>>>>>> 63163ffdafbb469a45d8a646a3741d73ec9193b3
     /*****************************************/
 
     // Fetch Weather API
@@ -159,6 +176,7 @@ function handleSearchRequest() {
                     latitude = data.coord.lat;
                     longitude = data.coord.lon;
 
+<<<<<<< HEAD
                     //Stores search info in local storage and gets TrueWay API info
                     handleSearchRequest();
 
@@ -206,20 +224,122 @@ function handleSearchRequest() {
                 }
             });
     };
+=======
+             //Render the results elements into the main content section
+             //renderResults();
+              
+              
+            }
+            else {
+                console.log("Error from API");
+            }
+        });
+};
+>>>>>>> 63163ffdafbb469a45d8a646a3741d73ec9193b3
 
 
 
     // Get user coordinates 
     var userCoordinates = navigator.geolocation.getCurrentPosition(success, fail);
 
+<<<<<<< HEAD
     function onSearchBtnClick(event) {
         event.preventDefault();
 
         //Gets the city weather data and forwards that information to the handleSearchRequest function
         getWeatherData(searchInput.val());
+=======
+function onSearchBtnClick(event) {
+    event.preventDefault();
+    console.log(event);
+    //Gets the city weather data and forwards that information to the handleSearchRequest function
+    //var cityName = event.target
+    loadSavedCities(); 
+    getWeatherData(searchInput.val() != ''?searchInput.val():event.target.innerHTML);
+>>>>>>> 63163ffdafbb469a45d8a646a3741d73ec9193b3
 
     }
 
     //Sets an event listener on the search button
     btnsearchEl.on('click', onSearchBtnClick);
 
+var outDoor = ["art_gallery","tourist_attraction","park"];
+var indoor = ["Library", "art_gallery"];
+var evening = ["cafe","night_club","bar"];
+
+function getActivities(){
+    var time = moment(new Date(cityWeatherData.dt*1000)).format("h");
+    var cod = Number(String(cityWeatherData.weather[0].id).charAt(0));
+
+    if(Number(time) > 18){
+        return evening[Math.floor(Math.random()*evening.length)];
+    }
+    
+    switch (cod) {
+        case 8:
+            return outDoor[Math.floor(Math.random()*outDoor.length)];
+
+        case 5:
+            return "Library";
+
+        case 6:
+        case 3:
+            return indoor[Math.floor(Math.random()*indoor.length)];
+    
+        default:
+            return "";
+    }
+}
+
+// TODO : Show section of activities
+function renderResults(){
+    
+    rulesInfo.hide();
+
+     //Assign jQuery references to results elements
+     //var heroSection = $('.hero-section');
+
+     //var cards = $('#cards');
+
+     for(let i = 1; i <= 8 ; i++){               //This loop populates the card info
+       var cardActivityID = `#card-${i}-activity-name`;
+       var cardActivity = $(cardActivityID);
+
+       var cardAddressID = `#card-${i}-activity-address`;
+       var cardAddress = $(cardAddressID);
+
+       var cardPhoneNumberID = `#card-${i}-activity-phonenumber`;
+       var cardPhoneNumber = $(cardPhoneNumberID);
+
+       var cardWebsiteID = `#card-${i}-activity-website`;
+       var cardWebsite = $(cardWebsite);
+
+       cardActivity.text(trueWayPlaces[i-1].name);
+       cardAddress.text(trueWayPlaces[i-1].address);
+       //cardPhoneNumber.text(trueWayPlaces[i-1].address);
+       cardWebsite.text(trueWayPlaces[i-1].website);
+       cardWebsite.attr('href', '#'+trueWayPlaces[i-1].website);
+     }
+
+ resultsSection.show();
+}
+
+function loadSavedCities() {
+    searchedCities = [];
+    searchedCitiesListEl.empty();
+
+    var savedCitylist = localStorage.getItem("previousSearches");
+    if (savedCitylist != null && savedCitylist != "") {
+        searchedCities = JSON.parse(savedCitylist);
+        searchedCities.forEach(element => {
+            var buttonliEl = $('<li></li>');
+            var searchedCityBtn = $('<a class="button searchedCity">' + element.cityName + '</a>')
+            buttonliEl.append(searchedCityBtn);
+            searchedCitiesListEl.append(buttonliEl);
+        });
+        var searchedCityBtnEl = $('.searchedCity');
+        searchedCityBtnEl.on("click", onSearchBtnClick);
+    }
+};
+
+loadSavedCities();
