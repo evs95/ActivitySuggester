@@ -1,26 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    
-    <!-- Compressed foundation CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <title>Sunshine</title>
-  </head>
+  <!-- Compressed foundation CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css"
+    crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <title>Sunshine</title>
+</head>
 
   <body>
     <row>
@@ -32,7 +26,7 @@
                       <label>search</label>
                     </div>
                     <div class="cell small-4 medium-4 large-4" style="width: 155%;">
-                      <input id="the-one-input-to-rule-them-all" type="text" value="Search for city"/>
+                      <input id="the-one-input-to-rule-them-all" type="text" placeholder="Search for city"/>
                     </div>
                     <div class="button small-4 medium-4 large-4 alert small">
                       <button id="btnsearch">🔎</button>
@@ -131,66 +125,140 @@
                   Cities Nearby - Entering Placeholder text to test sizing of this card box
                 </div>
               </div>
-                <div id="card-container">
+
+
+              <div id="card-container">
+
+
+               <!--
+                <section id="cards">
+                </section>
+               -->
+                
+                <div class="card small-3-column medium-3-column large-3-column flex-direction-column"
+                  id="weatherCurrent">
+                  Weather Current - Entering Placeholder text to test sizing of this card box
+                </div>
+                <div class="card small-3-column medium-3-column large-3-column" id="citiesNearby">
+                  Cities Nearby - Entering Placeholder text to test sizing of this card box
+                </div>
+                <div id="results-section">
                   <div class="grix-x grid-padding-x-column small-4 row flex-container">
-                      <div class="grid-x grid-padding-x-column row large-offset-1" id="sugg-container">
-                          <div class="card small-12-column ">
-                            Suggested Activities in your area. There are many activities to choose from. 
-                            Have Fun! Entering Placeholder text to test sizing of this card box.
+                    <div class="grid-x grid-padding-x-column row" id="sugg-container">
+                      <div class="card small-12-column ">
+                        <section class="hero-section">
+                          <div class="hero-section-text">
+                            <h1>Suggested Activities in Your Area</h1>
+                            <h5>These places are happenin'!</h5>
                           </div>
-                          <div class="grid-x grid-padding-x row align-spaced flex-direction-row">
-                            <div class="card small-3-row medium-2-row large-2-row" style="width:10%;" id="card1">
-                              <div class="card-divider">
-                                ACTIVITY 1
-                              </div>
-                              <img src="https://ichef.bbci.co.uk/images/ic/640x360/p08l068m.jpg">
-                              <div class="card-section">
-                                <h4>This is Bob Ross</h4>
-                                <p>What a happy picture we have here!</p>
-                              </div>
-                            </div>
-                            <div class="card small-3-row medium-2-row large-2-row" style="width:10%;" id="card2">
-                              <div class="card-divider">
-                                ACTIVITY 2
-                              </div>
-                              <img src="https://i.redd.it/7z2vlx4ou1141.jpg">
-                              <div class="card-section">
-                                <h4>This is not Bob Ross</h4>
-                                <p>But its still a very happy picture</p>
-                              </div>
-                            </div>
-                            <div class="card small-3-row medium-2-row large-2-row" style="width:10%;" id="card3">
-                              <div class="card-divider">
-                                ACTIVITY 3
-                              </div>
-                              <img src="https://i.ytimg.com/vi/JzJXeIuT1qk/maxresdefault.jpg">
-                              <div class="card-section">
-                                <h4>This is Rick Ross</h4>
-                                <p>He can be happy too!</p>
+                        </section>
+                      </div>
+                      <div class="grid-x grid-padding-x row align-spaced flex-direction-row">
+                        <div class="card small-3-row medium-2-row large-2-row" style="width:10%;" id="card1">
+                          <div class="card-divider">
+                            ACTIVITY 1
+
+                          </div>
+                          <img src="https://ichef.bbci.co.uk/images/ic/640x360/p08l068m.jpg">
+                          <div class="card-section">
+                            <div class="flip-card">
+                              <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                  <h2 id="card-1-activity-type">Cafe</h2>
+                                </div>
+                                <div class="flip-card-back">
+                                  <h2 id="card-1-activity-name">Activity Name</h2>
+                                  <p id="card-1-activity-address">123 Activity Address Ln, Activityville, AA, 12345</p>
+                                  <a id="card-1-activity-website" href="#">Website</a>
+                                </div>
                               </div>
                             </div>
-                            <div class="card small-3-row medium-2-row large-2-row" style="width:10%;" id="card4">
-                              <div class="card-divider">
-                                ACTIVITY 4
+                          </div>
+                        </div>
+                        <div class="card small-3-row medium-2-row large-2-row" style="width:10%;" id="card2">
+                          <div class="card-divider">
+                            ACTIVITY 2
+                          </div>
+                          <img src="https://i.redd.it/7z2vlx4ou1141.jpg">
+                          <div class="card-section">
+                            <div class="flip-card">
+                              <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                  <h2 id="card-2-activity-type">Cafe</h2>
+                                </div>
+                                <div class="flip-card-back">
+                                  <h2 id="card-2-activity-name">Activity Name</h2>
+                                  <p id="card-2-activity-address">123 Activity Address Ln, Activityville, AA, 12345</p>
+                                  <a id="card-2-activity-website" href="#">Website</a>
+                                </div>
                               </div>
-                              <img src="https://www.thelist.com/img/gallery/the-real-reason-ross-dress-for-less-clothing-is-so-cheap/intro-1620600081.webp">
-                              <div class="card-section">
-                                <h4>This is Ross</h4>
-                                <p>You can dress for less and with the new merch you too will be happy!!</p>
-                              </div>                          
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card small-3-row medium-2-row large-2-row" style="width:10%;" id="card3">
+                          <div class="card-divider">
+                            ACTIVITY 3
+                          </div>
+                          <img src="https://i.ytimg.com/vi/JzJXeIuT1qk/maxresdefault.jpg">
+                          <div class="card-section">
+                            <div class="flip-card">
+                              <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                  <h2 id="card-3-activity-type">Cafe</h2>
+                                </div>
+                                <div class="flip-card-back">
+                                  <h2 id="card-3-activity-name">Activity Name</h2>
+                                  <p id="card-3-activity-address">123 Activity Address Ln, Activityville, AA, 12345</p>
+                                  <a id="card-3-activity-website" href="#">Website</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card small-3-row medium-2-row large-2-row" style="width:10%;" id="card4">
+                          <div class="card-divider">
+                            ACTIVITY 4
+                          </div>
+                          <img
+                            src="https://www.thelist.com/img/gallery/the-real-reason-ross-dress-for-less-clothing-is-so-cheap/intro-1620600081.webp">
+                          <div class="card-section">
+                            <div class="flip-card">
+                              <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                  <h2 id="card-4-activity-type">Cafe</h2>
+                                </div>
+                                <div class="flip-card-back">
+                                  <h2 id="card-4-activity-name">Activity Name</h2>
+                                  <p id="card-4-activity-address">123 Activity Address Ln, Activityville, AA, 12345</p>
+                                  <a id="card-4-activity-website" href="#">Website</a>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                        <div class="grid-x grid-padding-x row align-spaced flex-direction-row">
-                          <div class="card small-3-row medium-2-row large-2-row large-offset-1" style="width:10%;" id="card5">
-                            <div class="card-divider">
-                              ACTIVITY 5
-                          </div>
-                      <img src="https://www.thelist.com/img/gallery/the-real-reason-ross-dress-for-less-clothing-is-so-cheap/intro-1620600081.webp">
+                    </div>
+                  </div>
+                  <div class="grid-x grid-padding-x row align-spaced flex-direction-row">
+                    <div class="card small-3-row medium-2-row large-2-row" style="width:10%;" id="card5">
+                      <div class="card-divider">
+                        ACTIVITY 5
+                      </div>
+                      <img
+                        src="https://www.thelist.com/img/gallery/the-real-reason-ross-dress-for-less-clothing-is-so-cheap/intro-1620600081.webp">
                       <div class="card-section">
-                        <h4>This is Ross</h4>
-                        <p>You can dress for less and with the new merch you too will be happy!!</p>
+                        <div class="flip-card">
+                          <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                              <h2 id="card-5-activity-type">Cafe</h2>
+                            </div>
+                            <div class="flip-card-back">
+                              <h2 id="card-5-activity-name">Activity Name</h2>
+                              <p id="card-5-activity-address">123 Activity Address Ln, Activityville, AA, 12345</p>
+                              <a id="card-5-activity-website" href="#">Website</a>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     <div class="card small-3-row medium-2-row large-2-row" style="width:10%;" id="card6">
@@ -199,67 +267,100 @@
                       </div>
                       <img src="https://i.ytimg.com/vi/JzJXeIuT1qk/maxresdefault.jpg">
                       <div class="card-section">
-                        <h4>This is Rick Ross</h4>
-                        <p>He can be happy too!</p>
+                        <div class="flip-card">
+                          <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                              <h2 id="card-6-activity-type">Cafe</h2>
+                            </div>
+                            <div class="flip-card-back">
+                              <h2 id="card-6-activity-name">Activity Name</h2>
+                              <p id="card-6-activity-address">123 Activity Address Ln, Activityville, AA, 12345</p>
+                              <a id="card-6-activity-website" href="#">Website</a>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     <div class="card small-3-row medium-2-row large-2-row" style="width:10%;" id="card7">
                       <div class="card-divider">
-                      ACTIVITY 7
+                        ACTIVITY 7
                       </div>
                       <img src="https://i.redd.it/7z2vlx4ou1141.jpg">
                       <div class="card-section">
-                        <h4>This is not Bob Ross</h4>
-                        <p>But its still a very happy picture</p>
+                        <div class="flip-card">
+                          <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                              <h2 id="card-7-activity-type">Cafe</h2>
+                            </div>
+                            <div class="flip-card-back">
+                              <h2 id="card-7-activity-name">Activity Name</h2>
+                              <p id="card-7-activity-address">123 Activity Address Ln, Activityville, AA, 12345</p>
+                              <a id="card-7-activity-website" href="#">Website</a>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      </div>
+                    </div>
                     <div class="card small-3-row medium-2-row large-2-row" style="width:10%;" id="card8">
                       <div class="card-divider">
                         ACTIVITY 8
                       </div>
                       <img src="https://ichef.bbci.co.uk/images/ic/640x360/p08l068m.jpg">
                       <div class="card-section">
-                        <h4>This is Bob Ross</h4>
-                        <p>What a happy picture we have here!</p>
+                        <div class="flip-card">
+                          <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                              <h2 id="card-8-activity-type">Cafe</h2>
+                            </div>
+                            <div class="flip-card-back">
+                              <h2 id="card-8-activity-name">Activity Name</h2>
+                              <p id="card-8-activity-address">123 Activity Address Ln, Activityville, AA, 12345</p>
+                              <a id="card-8-activity-website" href="#">Website</a>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div id="activities" data-state="hide">
-          <aside>
-            <form id="searchForm" class="row">
-              <label>search</label>
-              <input id="the-one-input-to-rule-them-all" type="text"/>
-              <button>🔎</button>
-            </form>
-          </aside>
-          <div>
-            <section id="jumbotron"></section>
-            <section id="cards">
-              <div class="radius bordered shadow card">
-                <img src="https://placehold.it/500x250">
-                <div class="card-divider">
-                  Styled Card
-                </div>
-                <div class="card-section">
-                  <h4>This is a card.</h4>
-                  <p>It has an easy to override visual style, and is appropriately subdued.</p>
-                </div>
-              </div>            
-            </section>
-          </div>
+      </div>
+      <div id="activities" data-state="hide">
+        <aside>
+          <form id="searchForm" class="row">
+            <label>search</label>
+            <input id="the-one-input-to-rule-them-all" type="text" />
+            <button>🔎</button>
+          </form>
+        </aside>
+        <div>
+          <section id="jumbotron"></section>
+          <section id="cards">
+            <div class="radius bordered shadow card">
+              <img src="https://placehold.it/500x250">
+              <div class="card-divider">
+                Styled Card
+              </div>
+              <div class="card-section">
+                <h4>This is a card.</h4>
+                <p>It has an easy to override visual style, and is appropriately subdued.</p>
+              </div>
+            </div>
+          </section>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
+  </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <!-- Compressed foundation JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" crossorigin="anonymous"></script>
-    <script src="./assets/js/script.js"></script>
-  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <!-- Compressed foundation JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js"
+    crossorigin="anonymous"></script>
+  <script src="./assets/js/script.js"></script>
+</body>
+
 </html>
