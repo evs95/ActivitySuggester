@@ -36,9 +36,10 @@ var insideThings =badWeatherActivities;
 //--A---Logic for comparing array output
 function compareWeatherConditions(){//!START OF FN////|||||
 // IF-ELSEIF-ELSE compare weather conditions using booleans    
-
+var liveData= 
+var measuredData=;
 if (goodDay == true) {
-    //! left off to bed  /let good= {
+    let good= {
     }
     alert('goodWeatherActivities');   
 }
