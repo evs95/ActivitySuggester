@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,121 +16,125 @@
   <title>Sunshine</title>
 </head>
 
-<body>
-  <row>
-    <header>
-      <div class="grid-x align-middle">
-        <section id="search">
-          <form id="searchForm" class="row">
-            <div class="label small-4 medium-4 large-4">
-              <label>search</label>
+  <body>
+    <row>
+      <header>
+          <div class="grid-x align-middle">
+            <section id="search">
+              <form id="searchForm" class="row">
+                    <div class="label small-4 medium-4 large-4">
+                      <label>search</label>
+                    </div>
+                    <div class="cell small-4 medium-4 large-4" style="width: 155%;">
+                      <input id="the-one-input-to-rule-them-all" type="text" placeholder="Search for city"/>
+                    </div>
+                    <div class="button small-4 medium-4 large-4 alert small">
+                      <button id="btnsearch">🔎</button>
+                    </div>
+                  </form>
+              </section>
+          </div>
+          <section style="center;" id="title">
+            <h1>Sunshine</h1>
+          </section>
+          <section id="currentWeather">
+            <div class="grid-container grid-container-padded">
+              <div class="grid-x grid-padding-x align-right">
+                <section>
+                  <div id="card">
+                    Current Weather
+                  </div>
+                  <span>
+                    <aside>
+                      Beached Whales are still Whales
+                    </aside>
+                  </span>
+                </section>
+              </div>
             </div>
-            <div class="cell small-4 medium-4 large-4" style="width: 155%;">
-              <input id="the-one-input-to-rule-them-all" type="text" placeholder="Search for city" />
-            </div>
-            <div class="button small-4 medium-4 large-4 alert small">
-              <button>🔎</button>
-            </div>
-          </form>
+          </section>
+      </header>
+    </row>
+    </div>
+    <div class="grid-container-padded ">
+      <div class="grid-x grid-padding-x align-left">
+        <section>
+          <span>
+            <aside>
+              <div class="card">Beached Whales are still Whales
+                </div>
+              <br>
+              <div class="grid-x gridpadding-x grid padding-y card">
+                <div class="card-divider">Current Time</div>
+                <br>
+                <div class="card-divider">Current Date</div>
+                <br>
+                <div class="card-divider">Cities Nearby</div>
+              </div>
+            </aside>
+            <aside class="grid-padding-y">
+              <div class="grid-x card">
+                <div class="cell-divider">Search 1</div>
+                <div class="cell-divider">Search 2</div>
+                <div class="cell-divider">Search 3</div>
+                <div class="cell-divider">Search 4</div>
+                <div class="cell-divider">Search 5</div>
+                <div class="cell-divider">Search 6</div>
+                <div class="cell-divider">Search 7</div>
+                <div class="cell-divider">Search 8</div>
+                <div class="cell-divider">Search 9</div>
+                <div class="cell-divider">Search 10</div>
+              </div>
+            </aside>
+          </span>
         </section>
       </div>
-      <section style="text-align:center" id="title">
-        <h1>Sunshine</h1>
-      </section>
-      <section id="currentWeather">
-        <div class="grid-container grid-container-padded">
-          <div class="grid-x grid-padding-x align-right">
-            <section>
-              <div id="weather">
-                Current Weather
-              </div>
-              <span>
-                <aside>
-                  Beached Whales are still Whales
-                </aside>
-              </span>
-            </section>
-          </div>
-        </div>
-      </section>
-    </header>
-  </row>
-  </div>
-  <div class="grid-container-padded ">
-    <div class="grid-x grid-padding-x align-left float-left">
-      <section>
-        <span>
-          <aside>
-            <div class="card">Beached Whales are still Whales
-            </div>
-            <br>
-            <div class="grid-x gridpadding-x grid padding-y card">
-              <div class="card-divider">Current Time</div>
-              <br>
-              <div class="card-divider">Current Date</div>
-              <br>
-              <div class="card-divider">Cities Nearby</div>
-            </div>
-          </aside>
-          <aside class="grid-padding-y">
-            <div class="grid-x card">
-              <div class="cell-divider">Search 1</div>
-              <div class="cell-divider">Search 2</div>
-              <div class="cell-divider">Search 3</div>
-              <div class="cell-divider">Search 4</div>
-              <div class="cell-divider">Search 5</div>
-              <div class="cell-divider">Search 6</div>
-              <div class="cell-divider">Search 7</div>
-              <div class="cell-divider">Search 8</div>
-              <div class="cell-divider">Search 9</div>
-              <div class="cell-divider">Search 10</div>
-            </div>
-          </aside>
-        </span>
-      </section>
     </div>
-  </div>
-  <div class="grid-container grid-container-padded">
-    <main class="container p-5">
-      <div id="content" class="grid-margin-x grid-y grid-padding-y align-center" data-state="show">
-        <div id="rules-info" class="small-4 small-offset-6 medium-4 medium-offset-6 large-4 large-offset-4">
-          <div class="column">
-            <section id="aboutApp">
-              <div>
-                <h3>About Our App</h3>
-                <p>A web application that allows a user to pick a desired destination city or use
-                  local coordinates in order to find appropriate activities based on ambient conditions at that
-                  destination and user intent.</p>
-              </div>
-            </section>
-            <section id="useApp">
-              <h3>How to Use Our App</h3>
-              <p>Start by searching a city</p>
-            </section>
-            <section id="UI-activityTypes">
-              <h3>Categories includes</h3>
-              <ol>
-                <li>Parks</li>
-                <li>Library</li>
-              </ol>
-            </section>
+    <div class="grid-container grid-container-padded">
+      <main class="container p-5">
+        <div id="content" class="grid-margin-x grid-y grid-padding-y align-center" data-state="show">
+          <div class="small-4 small-offset-6 medium-4 medium-offset-6 large-4 large-offset-4">
+            <div class="column">
+              <section id="aboutApp" >
+                <div>
+                  <h3>About Our App</h3>
+                  <p>A web application that allows a user to pick a desired destination city or use 
+                    local coordinates in order to find appropriate activities based on ambient conditions at that destination and user intent.</p>
+                </div>
+              </section>
+              <section id="useApp">
+                <h3>How to Use Our App</h3>
+                <p>Start by searching a city</p>
+              </section>
+              <section id="UI-activityTypes">
+                <h3>Categories includes</h3>
+                <ol>
+                  <li>Parks</li>
+                  <li>Library</li>
+                </ol>
+              </section>
           </div>
-        </div>
-        <div class="grid-x grid-y grid-padding-y grid-padding-x" id="UX-activityTypes" data-state="hide">
-          <div class="cell flex-container align-center">
-            <div class="grid-x grid-padding-x">
+          </div>
+          <div class="grid-x grid-y grid-padding-y grid-padding-x" id="UX-activityTypes" data-state="hide">
+            <div class="cell flex-container">
+              <div class="grid-y grid-padding-y flex-container">
+                <div class="card small-3-column medium-2-column large-2-column flex-direction-column" id="weatherCurrent">
+                  Weather Current - Entering Placeholder text to test sizing of this card box
+                </div>
+                <div class="card small-3-column medium-2-column large-2-column flex-direction-column" id="citiesNearby">
+                  Cities Nearby - Entering Placeholder text to test sizing of this card box
+                </div>
+              </div>
 
 
               <div id="card-container">
 
 
-
+               <!--
                 <section id="cards">
-
-
-
-
                 </section>
+               -->
+                
                 <div class="card small-3-column medium-3-column large-3-column flex-direction-column"
                   id="weatherCurrent">
                   Weather Current - Entering Placeholder text to test sizing of this card box
