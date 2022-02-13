@@ -16,7 +16,7 @@ var btnsearchEl = $('#btnsearch');
 var currentDate = $(); // TODO : ID of curretn date in header
 var tempEl = $(); // TODO : ID of temparature in header
 var searchedCitiesListEl = $('#searchedCitiesList');
-
+//var clearCitiesListEl = $('#searchedCitiesList'); //<----------------------BBB 
 // Hide results section
 var activitySection = $('#activities');
 activitySection.hide();
@@ -114,7 +114,7 @@ function handleSearchRequest(city) {
     if(!cityExist){
         previousSearches.push(searchValues);
     }
-
+    
     //The array is stored locally in JSON
     localStorage.setItem('previousSearches', JSON.stringify(previousSearches));
     /*****************************************/
@@ -167,10 +167,9 @@ function getWeatherData(city) {
                 cityWeatherData = data;
                 latitude = data.coord.lat;
                 longitude = data.coord.lon;
-              
+
                 //Stores search info in local storage and gets TrueWay API info
                 handleSearchRequest(city);
-
                 loadSavedCities(); 
              //Render the results elements into the main content section
              //renderResults();
@@ -280,3 +279,11 @@ function loadSavedCities() {
 };
 
 loadSavedCities();
+
+
+function clearSavedCities() {
+    clearCityList = [];
+    var clearCityList = localStorage.cleaRItem("previousSearches");
+    clearCityBtnEl.on("click",onClearBtnClick);
+
+}
