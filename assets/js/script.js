@@ -19,8 +19,6 @@ var tempEl = $(); // TODO : ID of temparature in header
 var searchedCitiesListEl = $('#searchedCitiesList');
 
 // Hide results section
-var activitySection = $('#activities');
-activitySection.hide();
 resultsSection.hide();
 
 
@@ -68,6 +66,52 @@ function success(position) {
 function fail(fail) {
     console.log(fail);
     $('#weather').text('Enable geolocation')
+}
+
+// Fetch Weather API
+function getWeatherData(city) {
+    var url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=75cb326e22036d2782293ee5a922582b";
+    fetch(url)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            if (data != null && data.cod == 200) {
+                cityWeatherData = data;
+                latitude = data.coord.lat;
+                longitude = data.coord.lon;
+
+                //Stores search info in local storage and gets TrueWay API info
+                handleSearchRequest(city);
+
+                loadSavedCities();
+
+                //Render the results elements into the main content section
+                //renderResults();
+
+                // Fetch Weather API
+                function getWeatherData(city) {
+                    var url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=75cb326e22036d2782293ee5a922582b";
+                    fetch(url)
+                        .then(function (response) {
+                            return response.json();
+                        })
+                        .then(function (data) {
+                            if (data != null && data.cod == 200) {
+                                cityWeatherData = data;
+                                latitude = data.coord.lat;
+                                longitude = data.coord.lon;
+                            }
+                            else {
+                                console.log("Error from API");
+                            }
+                        });
+                };
+            }
+            else { console.log('error') };
+
+        });
+
 }
 
 // Saves search info to local storage and gets TrueWay API info
@@ -156,55 +200,13 @@ function handleSearchRequest(city) {
 }
 /*****************************************/
 
-// Fetch Weather API
-function getWeatherData(city) {
-    var url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=75cb326e22036d2782293ee5a922582b";
-    fetch(url)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            if (data != null && data.cod == 200) {
-                cityWeatherData = data;
-                latitude = data.coord.lat;
-                longitude = data.coord.lon;
-
-                // Fetch Weather API
-                function getWeatherData(city) {
-                    var url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=75cb326e22036d2782293ee5a922582b";
-                    fetch(url)
-                        .then(function (response) {
-                            return response.json();
-                        })
-                        .then(function (data) {
-                            if (data != null && data.cod == 200) {
-                                cityWeatherData = data;
-                                latitude = data.coord.lat;
-                                longitude = data.coord.lon;
-
-                                //Stores search info in local storage and gets TrueWay API info
-                                handleSearchRequest(city);
-
-                                loadSavedCities();
-                                //Render the results elements into the main content section
-                                //renderResults();
-
-
-                            }
-                            else {
-                                console.log("Error from API");
-                            }
-                        });
-                };
-            }
-            else {console.log('error')}; 
-        });
-
-}
-
 function getActivities() {
     var time = moment(new Date(cityWeatherData.dt * 1000)).format("h");
     var cod = Number(String(cityWeatherData.weather[0].id).charAt(0));
+
+    var outDoor = ["art_gallery", "tourist_attraction", "park"];
+    var indoor = ["Library", "art_gallery"];
+    var evening = ["cafe", "night_club", "bar"];
 
     if (Number(time) > 18) {
         return evening[Math.floor(Math.random() * evening.length)];
@@ -230,33 +232,86 @@ function getActivities() {
 function renderResults() {
 
     rulesInfo.hide();
+    resultsSection.hide();
 
     //Assign jQuery references to results elements
     //var heroSection = $('.hero-section');
 
+    $('#city-weather').empty();
+
+    $('#city-weather').text(cityWeatherData.weather[0].main)
+                      .append($('<img>')
+                      .attr('alt', cityWeatherData.weather[0].description)
+                      .attr('src', "http://openweathermap.org/img/wn/"
+                                + cityWeatherData.weather[0].icon + "@2x.png"));
+
+    $('#city-time').empty();
+
+    $('#city-time').text(moment(new Date(cityWeatherData.dt * 1000)).format("hh:mm a"))
+
+
     //var cards = $('#cards');
 
     for (let i = 1; i <= 8; i++) {               //This loop populates the card info
+
+        //Reference cards
         var cardActivityID = `#card-${i}-activity-name`;
         var cardActivity = $(cardActivityID);
 
         var cardAddressID = `#card-${i}-activity-address`;
         var cardAddress = $(cardAddressID);
 
-        var cardPhoneNumberID = `#card-${i}-activity-phonenumber`;
+    
+        var cardPhoneNumberID = `#card-${i}-activity-phoneNumber`;
         var cardPhoneNumber = $(cardPhoneNumberID);
+    
 
         var cardWebsiteID = `#card-${i}-activity-website`;
-        var cardWebsite = $(cardWebsite);
+        var cardWebsite = $(cardWebsiteID);
 
+        //Write card listing info
         cardActivity.text(trueWayPlaces[i - 1].name);
+
         cardAddress.text(trueWayPlaces[i - 1].address);
-        //cardPhoneNumber.text(trueWayPlaces[i-1].address);
-        cardWebsite.text(trueWayPlaces[i - 1].website);
-        cardWebsite.attr('href', '#' + trueWayPlaces[i - 1].website);
+
+        
+        cardPhoneNumber.attr('href', "tel:" + trueWayPlaces[i-1].phone_number);
+        cardPhoneNumber.text(trueWayPlaces[i-1].phone_number);
+        
+
+        cardWebsite.attr('href', trueWayPlaces[i - 1].website);
+        cardWebsite.text('Website');
+
+        //Reset css rules for card listings
+        cardWebsite.css('cursor', "pointer");
+        cardWebsite.css('background-color', 'green');
+
+        cardPhoneNumber.css('cursor', 'pointer');
+        cardPhoneNumber.css('background-color', 'green');
+
+      
+        //Validate card listing info
+        if(cardWebsite.attr('href') == undefined){
+            cardWebsite.text('Website Unavailable');
+            cardWebsite.css('cursor', "not-allowed");
+            cardWebsite.css('background-color', 'red');
+        }
+        
+        if(cardAddress.text() === "123 Activity Address Ln, Activityville, AA, 12345"){
+            cardAddress.text('Address Unavailable');
+        }
+
+        var phoneListed = cardPhoneNumber.attr('href')
+        if(phoneListed === "tel:" + undefined){
+            cardPhoneNumber.text('Unlisted Telephone #');
+            cardPhoneNumber.css('cursor', 'not-allowed');
+            cardPhoneNumber.css('background-color', 'red');
+        }
+        
+        
     }
 
-    resultsSection.show();
+    resultsSection.fadeIn('slow', 'linear');
 };
 
 function loadSavedCities() {
@@ -269,7 +324,10 @@ function loadSavedCities() {
         searchedCities.forEach(element => {
             var buttonliEl = $('<li></li>');
             var searchedCityBtn = $('<a class="button searchedCity">' + element.cityName + '</a>')
+            searchedCityBtn.css('min-width', '-webkit-fill-available');
             buttonliEl.append(searchedCityBtn);
+            buttonliEl.css('list-style', 'none');
+            buttonliEl.css('text-transform', 'capitalize');
             searchedCitiesListEl.append(buttonliEl);
         });
         var searchedCityBtnEl = $('.searchedCity');
@@ -288,9 +346,6 @@ function onSearchBtnClick(event) {
 
 }
 
-
-
-
 // Load the saved city information from local storage and display to screen.
 loadSavedCities();
 
@@ -300,8 +355,6 @@ var userCoordinates = navigator.geolocation.getCurrentPosition(success, fail);
 //Sets an event listener on the search button
 btnsearchEl.on('click', onSearchBtnClick);
 
-var outDoor = ["art_gallery", "tourist_attraction", "park"];
-var indoor = ["Library", "art_gallery"];
-var evening = ["cafe", "night_club", "bar"];
+
 
 
