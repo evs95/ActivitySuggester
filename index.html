@@ -9,6 +9,7 @@
   <!-- Compressed foundation CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css"
     crossorigin="anonymous">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
@@ -18,11 +19,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css" />
   <title>Sunshine</title>
+
+
+   <!-- The Modal -->
+   <div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-animate-bottom">
+      <div class="w3-container">
+        <span onclick="document.getElementById('id01').style.display='none'"
+          class="w3-button w3-display-topright">&times;</span>
+        <p>You must enter a valid city name.</p>
+      </div>
+    </div>
+  </div>
+
+
 </head>
 
 <body>
 
   <header class="align-justify flex-container flex-dir-column large-flex-dir-row align-middle">
+   
 
 
     <div class="cell-large-4">
@@ -125,12 +141,12 @@
 
           <div class="grid-y cell small-12 medium-2 align-top">
             <div class="cell small-12 medium-2" id="weatherCurrent">
-                <label class="label">City weather</label>
-                <p id="city-weather"></p>
-                <label class="label">City time</label>
-                <p id="city-time"></p>
+              <label class="label">City weather</label>
+              <p id="city-weather"></p>
+              <label class="label">City time</label>
+              <p id="city-time"></p>
             </div>
-           <!--
+            <!--
             <ul class="cell card small-3 medium-6" id="citiesNearby">
               <li> Cities Nearby - Entering Placeholder text to test sizing of this card box</li>
             </ul>

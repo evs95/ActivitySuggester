@@ -1,4 +1,3 @@
-
 // Declare global variables
 var latitude = 0;
 var longitude = 0;
@@ -108,7 +107,11 @@ function getWeatherData(city) {
                         });
                 };
             }
-            else { console.log('error') };
+            else { console.log('error')
+                
+               //Trigger/Open the Modal
+                document.getElementById('id01').style.display='block';
+            };
 
         });
 
@@ -157,7 +160,11 @@ function handleSearchRequest(city) {
     }
 
     if (!cityExist) {
-        previousSearches.push(searchValues);
+        previousSearches.unshift(searchValues);
+        //Limit max saved searches to 10
+        if(previousSearches.length >= 10){
+            previousSearches.pop();
+        }
     }
 
     //The array is stored locally in JSON
@@ -356,5 +363,14 @@ var userCoordinates = navigator.geolocation.getCurrentPosition(success, fail);
 btnsearchEl.on('click', onSearchBtnClick);
 
 
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 
 
