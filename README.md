@@ -37,9 +37,13 @@ A web application that allows a user to pick a desired destination city or use l
 -------------------------------------
 ![UI Project](https://user-images.githubusercontent.com/94703967/153086599-6148502b-30ad-4869-b092-00f573922355.jpg)
 
+![UI Project Completed](https://raw.githubusercontent.com/evs95/ActivitySuggester/cody-finish-project/UI_Screenshot_Complete.png)
+
 #### The User Experience Wireframe Design
 -------------------------------------
 ![UX Design Template](https://user-images.githubusercontent.com/94703967/153086393-625028d7-e498-47af-a1c7-84f351cd66f7.png)
+
+![UX Project Completed](https://raw.githubusercontent.com/evs95/ActivitySuggester/cody-finish-project/UX_Screenshot_Complete.png)
 
 <a name="third-party-apis"></a>
 ## Third-party APIs
