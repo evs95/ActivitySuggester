@@ -29,14 +29,6 @@ The following image shows the web application's appearance and functionality:
 
 ![A user clicks through an interactive Acivity Suggester, then finds the acticities near the destination based on its weather conditions](assets/images/screenshot.gif.gif)
 
-### Tablet view
-
-![A user clicks through an interactive Acivity Suggester on Tablet, then finds the acticities near the destination based on its weather conditions](assets/images/screenshot-tablet.gif)
-
-### Mobile view
-
-![A user clicks through an interactive Acivity Suggester on Tablet, then finds the acticities near the destination based on its weather conditions](assets/images/screenshot-mobile.gif)
-
 ## Application Url
 
 Below is link for deployed Sunshine website.
