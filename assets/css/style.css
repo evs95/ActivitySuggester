@@ -164,6 +164,11 @@ a[id^="card"]{
   margin: 10px;
 }
 
+
+#clearCityBtnEl{
+  align-self: center;
+}
+
 #weather-current{
   background-color: white;
 }
