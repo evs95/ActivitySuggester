@@ -13,10 +13,10 @@ var currentWeather = $('#current-weather');
 var resultsSection = $('#results-section');
 var rulesInfo = $('#rules-info');
 var btnsearchEl = $('#btnsearch');
-var currentDate = $(); // TODO : ID of curretn date in header
-var tempEl = $(); // TODO : ID of temparature in header
 var searchedCitiesListEl = $('#searchedCitiesList');
-var clearCityBtnEl =$('#clearCityBtnEl');
+var clearCityBtnEl = $('#clearCityBtnEl');
+var suggestedActivitiesHeadingEl = $('#suggested-activities-heading');
+
 // Hide results section
 resultsSection.hide();
 
@@ -47,11 +47,6 @@ function success(position) {
                             .attr('alt', localWeatherData.weather[0].description)
                             .attr('src', "http://openweathermap.org/img/wn/"
                                 + localWeatherData.weather[0].icon + "@2x.png"));
-
-                    currentDate.text(data.name + '(' + moment().format("MM/DD/YYYY") + ')');
-                    tempEl.text("Temp: " + data.main.temp + "°F");
-
-
                 }
                 else {
                     console.log("Error from API");
@@ -84,9 +79,6 @@ function getWeatherData(city) {
                 handleSearchRequest(city);
 
                 loadSavedCities();
-
-                //Render the results elements into the main content section
-                //renderResults();
 
                 // Fetch Weather API
                 function getWeatherData(city) {
@@ -132,13 +124,6 @@ function handleSearchRequest(city) {
     }
 
     console.log(previousSearches);
-
-    //All search value inputs go here
-    // Coordinates will have to be reset from user position for a city search
-    // var latitude  =
-    // var longitude =
-
-
 
     var searchValues = {
         cityName: city,
@@ -200,6 +185,7 @@ function handleSearchRequest(city) {
         })
         .then(function (response) {
             trueWayPlaces = response.results;
+            suggestedActivitiesHeadingEl.text(`Suggested Activities in ${city}`);
             renderResults();
         })
         .catch(err => {
