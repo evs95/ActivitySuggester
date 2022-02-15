@@ -319,6 +319,7 @@ function renderResults() {
     }
 
     resultsSection.fadeIn('slow', 'linear');
+    searchInput.val('');
 };
 
 function loadSavedCities() {
