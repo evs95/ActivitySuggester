@@ -283,7 +283,7 @@ loadSavedCities();
 
 function clearSavedCities() {
     clearCityList = [];
-    var clearCityList = localStorage.cleaRItem("previousSearches");
+    var clearCityList = localStorage.clearItem("previousSearches");
     clearCityBtnEl.on("click",onClearBtnClick);
 
 }
