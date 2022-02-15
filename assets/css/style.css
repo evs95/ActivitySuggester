@@ -23,6 +23,9 @@ header {
   color: hsl(206, 17%, 28%);
   text-align: center;
   flex-direction: row;
+  border-bottom: black solid;
+  border-width: thin;
+  margin-bottom: 30px;
 }
 
 h1, h4{
@@ -139,6 +142,7 @@ header section{
 
 ul {
   text-decoration: none;
+  margin: 0px;
 }
 
 ol {
