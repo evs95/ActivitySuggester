@@ -16,7 +16,7 @@ var btnsearchEl = $('#btnsearch');
 var currentDate = $(); // TODO : ID of curretn date in header
 var tempEl = $(); // TODO : ID of temparature in header
 var searchedCitiesListEl = $('#searchedCitiesList');
-
+var clearCityBtnEl =$('#clearCityBtnEl');
 // Hide results section
 resultsSection.hide();
 
@@ -374,4 +374,12 @@ window.onclick = function(event) {
   }
 }
 
+function clearSavedCities() {
+    clearCityList = [];
+    var clearCityList = localStorage.removeItem("previousSearches");
+    searchedCitiesListEl.empty();
+
+}
+
+clearCityBtnEl.on("click", clearSavedCities);
 
