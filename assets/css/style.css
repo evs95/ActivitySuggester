@@ -166,7 +166,7 @@ a[id^="card"]{
 
 
 #clearCityBtnEl{
-  align-self: center;
+  width: -webkit-fill-available;
 }
 
 #weather-current{

@@ -111,6 +111,7 @@ function getWeatherData(city) {
                 
                //Trigger/Open the Modal
                 document.getElementById('id01').style.display='block';
+                searchInput.val('');
             };
 
         });
@@ -257,9 +258,9 @@ function renderResults() {
     $('#city-time').text(moment(new Date(cityWeatherData.dt * 1000)).format("hh:mm a"))
 
 
-    //var cards = $('#cards');
+    var cards = $('#card-section');
 
-    for (let i = 1; i <= 8; i++) {               //This loop populates the card info
+    for (let i = 1; i <= cards.length && trueWayPlaces.length; i++) {               //This loop populates the card info
 
         //Reference cards
         var cardActivityID = `#card-${i}-activity-name`;
@@ -371,6 +372,7 @@ var modal = document.getElementById('id01');
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+    searchInput.val('');
   }
 }
 
