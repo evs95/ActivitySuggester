@@ -271,13 +271,13 @@ function renderResults() {
         cardAddress.text('Address Unlisted');
 
         cardPhoneNumber.text('Unlisted Telephone #');
-        cardPhoneNumber.removeAttr('href')
+        cardPhoneNumber.removeAttr('href');
       
-        cardWebsite.removeAttr('href')
-        cardWebsite.text('Website Unavailable')
+        cardWebsite.removeAttr('href');
+        cardWebsite.text('Website Unavailable');
 
-        cardWebsite.css('background-color', 'none');
-        cardPhoneNumber.css('background-color', 'none');
+        cardWebsite.css('background-color', '');
+        cardPhoneNumber.css('background-color', '');
         
     
         if(trueWayPlaces && i <= trueWayPlaces.length){
@@ -311,6 +311,7 @@ function renderResults() {
         var phoneListed = cardPhoneNumber.attr('href')
         if(phoneListed === "tel:" + undefined){
             cardPhoneNumber.text('Unlisted Telephone #');
+            cardPhoneNumber.removeAttr('href');
             cardPhoneNumber.css('cursor', 'not-allowed');
             cardPhoneNumber.css('background-color', 'red');
         }
