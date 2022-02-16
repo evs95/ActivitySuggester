@@ -246,7 +246,8 @@ function renderResults() {
 
     var cards = $('#card-section');
 
-    for (let i = 1; i <= cards.length && trueWayPlaces.length; i++) {               //This loop populates the card info
+
+    for (let i = 1; i <= cards[0].childElementCount; i++) {               //This loop populates the card info
 
         //Reference cards
         var cardActivityID = `#card-${i}-activity-name`;
@@ -263,16 +264,31 @@ function renderResults() {
         var cardWebsiteID = `#card-${i}-activity-website`;
         var cardWebsite = $(cardWebsiteID);
 
-        //Write card listing info
+        
+        //Write blank card listing info
+        cardActivity.text('Not Enough Activities');
+
+        cardAddress.text('Address Unlisted');
+
+        cardPhoneNumber.text('Unlisted Telephone #');
+        cardPhoneNumber.removeAttr('href');
+      
+        cardWebsite.removeAttr('href');
+        cardWebsite.text('Website Unavailable');
+
+        cardWebsite.css('background-color', '');
+        cardPhoneNumber.css('background-color', '');
+        
+    
+        if(trueWayPlaces && i <= trueWayPlaces.length){
+        //Write trueWayPlaces info
         cardActivity.text(trueWayPlaces[i - 1].name);
 
         cardAddress.text(trueWayPlaces[i - 1].address);
 
-        
         cardPhoneNumber.attr('href', "tel:" + trueWayPlaces[i-1].phone_number);
         cardPhoneNumber.text(trueWayPlaces[i-1].phone_number);
         
-
         cardWebsite.attr('href', trueWayPlaces[i - 1].website);
         cardWebsite.text('Website');
 
@@ -291,16 +307,15 @@ function renderResults() {
             cardWebsite.css('background-color', 'red');
         }
         
-        if(cardAddress.text() === "123 Activity Address Ln, Activityville, AA, 12345"){
-            cardAddress.text('Address Unavailable');
-        }
 
         var phoneListed = cardPhoneNumber.attr('href')
         if(phoneListed === "tel:" + undefined){
             cardPhoneNumber.text('Unlisted Telephone #');
+            cardPhoneNumber.removeAttr('href');
             cardPhoneNumber.css('cursor', 'not-allowed');
             cardPhoneNumber.css('background-color', 'red');
         }
+    }
         
         
     }
